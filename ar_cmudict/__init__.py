@@ -21,7 +21,8 @@ def _entries(stream):
     for line in stream:
         parts = line.decode('utf-8').strip().split()
         thing = re.sub(r'\(\d+\)$', '', parts[0])
-        entries.append((thing, parts[1:]))
+        ## Do not include the frequency therefore it is parts[1:-1]
+        entries.append((thing, parts[1:-1]))
     return entries
 
 
